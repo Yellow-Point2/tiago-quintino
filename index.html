@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiago Quintino | Engenharia Eletrotécnica IST</title>
     <style>
-        :root { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --accent: #38bdf8; }
+        :root { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --accent: #38bdf8; --success: #10b981; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; }
         .container { max-width: 800px; margin: 0 auto; }
         header { text-align: center; padding: 40px 0; border-bottom: 1px solid var(--accent); }
@@ -15,9 +15,11 @@
         h2 { color: var(--accent); border-bottom: 1px solid #334155; padding-bottom: 10px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         ul { padding-left: 20px; }
-        .contact-btn { display: inline-block; background: var(--accent); color: var(--bg); padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: 0.3s; }
-        .contact-btn:hover { opacity: 0.8; transform: translateY(-2px); }
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+        .btn { display: inline-block; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .contact-btn { background: var(--accent); color: var(--bg); }
+        .download-btn { background: var(--success); color: white; margin-left: 10px; }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .download-btn { margin-left: 0; display: block; } }
     </style>
 </head>
 <body>
@@ -27,6 +29,8 @@
             <p>Estudante de Engenharia Eletrotécnica e de Computadores @ <strong>IST</strong></p>
             <span class="badge">Trabalhador-Estudante</span>
             <span class="badge">Assembleia de Escola</span>
+            <br>
+            <a href="Tiago_Quintino_CV.pdf" download class="btn download-btn">📄 Descarregar CV (PDF)</a>
         </header>
 
         <section>
@@ -57,7 +61,8 @@
         <section style="text-align: center;">
             <h2>Contacto</h2>
             <p>Interessado em estágios de verão e projetos de R&D.</p>
-            <a href="mailto:tiago.quintino@tecnico.ulisboa.pt" class="contact-btn">Enviar Email</a>
+            <a href="mailto:tiago.quintino@tecnico.ulisboa.pt" class="btn contact-btn">Enviar Email</a>
+            <a href="Tiago_Quintino_CV.pdf" download class="btn download-btn">📄 Obter CV em PDF</a>
             <br><br>
             <small>📍 Pinhal Novo, Portugal | 📞 928021720</small>
         </section>
