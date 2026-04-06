@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiago Quintino | Systems Engineering</title>
     <style>
         :root { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --accent: #f6821f; --success: #10b981; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; position: relative; }
         .container { max-width: 800px; margin: 0 auto; }
-        header { text-align: center; padding: 40px 0; border-bottom: 1px solid var(--accent); }
+        
+        /* Language Toggle Button Styles */
+        .lang-toggle { position: absolute; top: 20px; left: 20px; background: transparent; border: 2px solid var(--accent); color: var(--accent); padding: 5px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .lang-toggle:hover { background: var(--accent); color: var(--bg); }
+        
+        /* Language Visibility Rules */
+        body:not(.lang-pt) .pt { display: none; }
+        body.lang-pt .en { display: none; }
+
+        header { text-align: center; padding: 40px 0; border-bottom: 1px solid var(--accent); margin-top: 30px; }
         h1 { margin: 0; color: var(--accent); font-size: 2.5rem; }
         .badge { background: var(--accent); color: var(--bg); padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; margin: 5px; display: inline-block; }
         section { margin: 30px 0; background: var(--card); padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
@@ -19,53 +28,113 @@
         .contact-btn { background: var(--accent); color: var(--bg); }
         .download-btn { background: var(--success); color: white; margin-left: 10px; }
         .btn:hover { opacity: 0.8; transform: translateY(-2px); }
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .download-btn { margin-left: 0; display: block; } }
+        
+        @media (max-width: 600px) { 
+            .grid { grid-template-columns: 1fr; } 
+            .download-btn { margin-left: 0; display: block; }
+            .lang-toggle { position: static; display: block; margin: 0 auto; width: 80px; }
+        }
     </style>
 </head>
 <body>
+    <button class="lang-toggle" id="langBtn" onclick="toggleLanguage()">PT</button>
+
     <div class="container">
         <header>
             <h1>Tiago Miguel Nascimento Quintino</h1>
-            <p>Engenharia Eletrotécnica e de Computadores @ <strong>IST</strong> | Foco em Sistemas</p>
-            <span class="badge">Trabalhador-Estudante</span>
-            <span class="badge">Assembleia de Escola</span>
+            
+            <p class="en">Electrical & Computer Engineering @ <strong>IST</strong> | Systems Focus</p>
+            <p class="pt">Engenharia Eletrotécnica e de Computadores @ <strong>IST</strong> | Foco em Sistemas</p>
+            
+            <span class="badge en">Working Student</span>
+            <span class="badge pt">Trabalhador-Estudante</span>
+            
+            <span class="badge en">School Assembly Board</span>
+            <span class="badge pt">Assembleia de Escola</span>
             <br>
-            <a href="Tiago_Quintino_Systems_Engineering.pdf" download class="btn download-btn">📄 Descarregar CV (PDF)</a>
+            
+            <a href="Tiago_Quintino_CV_Systems.pdf" download class="btn download-btn en">📄 Download CV (PDF)</a>
+            <a href="Tiago_Quintino_CV_Systems.pdf" download class="btn download-btn pt">📄 Descarregar CV (PDF)</a>
         </header>
 
         <section>
-            <h2>Sobre Mim</h2>
-            <p>Estudante do 2º ano com perfil de "Builder", focado no desenvolvimento de soluções de baixo nível e segurança de sistemas. Desenvolvo competências em <strong>Linguagem C</strong>, <strong>Assembly ARM</strong> e na exploração do <strong>Kernel Linux</strong>. Procuro aplicar o meu pensamento sistémico e resiliência em desafios reais de infraestrutura de redes.</p>
+            <h2 class="en">About Me</h2>
+            <h2 class="pt">Sobre Mim</h2>
+            
+            <p class="en">2nd-year engineering student with a "Builder" profile, focused on low-level solutions and systems security. I am actively developing skills in <strong>C Programming</strong>, <strong>ARM Assembly</strong>, and <strong>Linux Kernel</strong> exploration. I strive to apply my analytical thinking and resilience to real-world network infrastructure challenges.</p>
+            <p class="pt">Estudante do 2º ano de engenharia com um perfil de "Builder", focado no desenvolvimento de soluções de baixo nível e segurança de sistemas. Desenvolvo ativamente competências em <strong>Programação C</strong>, <strong>Assembly ARM</strong> e exploração do <strong>Kernel Linux</strong>. Procuro aplicar o meu pensamento analítico e resiliência em desafios reais de infraestrutura de redes.</p>
         </section>
 
         <div class="grid">
             <section>
-                <h2>Skills Técnicas</h2>
-                <ul>
-                    <li><strong>Linguagem C:</strong> Nível Avançado (Ponteiros/Memória)</li>
+                <h2 class="en">Technical Skills</h2>
+                <h2 class="pt">Competências Técnicas</h2>
+                
+                <ul class="en">
+                    <li><strong>Language C:</strong> Advanced (Pointers/Memory)</li>
+                    <li><strong>Architecture:</strong> ARM Assembly & Low-Level</li>
+                    <li><strong>Networks:</strong> TCP/IP Protocols & Security</li>
+                    <li><strong>Systems:</strong> Linux Kernel & OS Architecture</li>
+                </ul>
+                <ul class="pt">
+                    <li><strong>Linguagem C:</strong> Avançado (Ponteiros/Memória)</li>
                     <li><strong>Arquitetura:</strong> Assembly ARM & Baixo Nível</li>
                     <li><strong>Redes:</strong> Protocolos TCP/IP & Segurança</li>
-                    <li><strong>Sistemas:</strong> Kernel Linux & Processos</li>
+                    <li><strong>Sistemas:</strong> Kernel Linux & Arquitetura de SO</li>
                 </ul>
             </section>
             <section>
-                <h2>Experiência & Liderança</h2>
-                <ul>
-                    <li><strong>Mesa da Assembleia:</strong> Rep. Estudantil (IST)</li>
-                    <li><strong>Explicações:</strong> Matemática e FQ (Atelier 4 U)</li>
+                <h2 class="en">Experience & Leadership</h2>
+                <h2 class="pt">Experiência & Liderança</h2>
+                
+                <ul class="en">
+                    <li><strong>Assembly Board:</strong> Student Rep. (IST)</li>
+                    <li><strong>STEM Tutor:</strong> Math & Physics (Atelier 4 U)</li>
+                    <li><strong>Organization:</strong> IST School Days</li>
+                </ul>
+                <ul class="pt">
+                    <li><strong>Assembleia de Escola:</strong> Rep. Estudantil (IST)</li>
+                    <li><strong>Explicador:</strong> Matemática e FQ (Atelier 4 U)</li>
                     <li><strong>Organização:</strong> Jornadas de Escola IST</li>
                 </ul>
             </section>
         </div>
 
         <section style="text-align: center;">
-            <h2>Contacto</h2>
-            <p>Sempre à procura do próximo desafio em Systems Engineering.</p>
-            <a href="mailto:tiago.quintino@tecnico.ulisboa.pt" class="btn contact-btn">Enviar Email</a>
-            <a href="Tiago_Quintino_Systems_Engineering.pdf" download class="btn download-btn">📄 Obter CV em PDF</a>
+            <h2 class="en">Contact</h2>
+            <h2 class="pt">Contacto</h2>
+            
+            <p class="en">Always looking for the next challenge in Systems Engineering.</p>
+            <p class="pt">Sempre à procura do próximo desafio em Systems Engineering.</p>
+            
+            <a href="mailto:tiago.quintino@tecnico.ulisboa.pt" class="btn contact-btn en">Send Email</a>
+            <a href="mailto:tiago.quintino@tecnico.ulisboa.pt" class="btn contact-btn pt">Enviar Email</a>
+            
+            <a href="Tiago_Quintino_CV_Systems.pdf" download class="btn download-btn en">📄 Get Resume (PDF)</a>
+            <a href="Tiago_Quintino_CV_Systems.pdf" download class="btn download-btn pt">📄 Obter CV (PDF)</a>
             <br><br>
-            <small>📍 Pinhal Novo, Portugal | 📞 928021720</small>
+            
+            <small>📍 Pinhal Novo, Portugal | 📞 +351 928 021 720</small>
         </section>
     </div>
+
+    <script>
+        function toggleLanguage() {
+            const body = document.body;
+            const btn = document.getElementById('langBtn');
+            
+            // Toggle the class on the body
+            body.classList.toggle('lang-pt');
+            
+            // Change the button text
+            if (body.classList.contains('lang-pt')) {
+                btn.innerText = 'EN';
+                document.documentElement.lang = 'pt';
+            } else {
+                btn.innerText = 'PT';
+                document.documentElement.lang = 'en';
+            }
+        }
+    </script>
 </body>
 </html>
