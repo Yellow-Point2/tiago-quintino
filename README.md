@@ -23,3 +23,6 @@ Estudante do 2º ano no Instituto Superior Técnico. Atualmente concilio o rigor
 ## Contacto
 * **Email:** [tiago.quintino@tecnico.ulisboa.pt](mailto:tiago.quintino@tecnico.ulisboa.pt)
 * **LinkedIn:** https://www.linkedin.com/in/tiago-quintino-8621091b0/
+
+
+[📄 Descarregar CV em formato PDF](./Tiago_Quintino_CV.pdf)
