@@ -1,298 +1,454 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tiago Quintino | Electrical & Computer Engineering</title>
+  <title>Tiago Quintino — CV</title>
+  <meta name="description" content="Tiago Quintino — Electrical & Computer Engineering student (IST). Cybersecurity, networks, low-level systems." />
+  <meta name="color-scheme" content="light dark" />
 
-  <meta name="description" content="Tiago Quintino — IST ECE student focused on cybersecurity, networks, and low-level systems (C, ARM, Linux). CV and contact." />
-  <meta name="color-scheme" content="dark" />
-
-  <!-- Optional: Inter font (keeps your choice but avoids relying on user having it installed) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0f172a;
-      --card:#1e293b;
-      --text:#f1f5f9;
+      --bg:#0b1220;
+      --paper:#0f172a;
+      --ink:#e5e7eb;
       --muted:#cbd5e1;
+      --rule:#22314f;
       --accent:#f6821f;
-      --success:#10b981;
-      --border:#334155;
-      --shadow:0 10px 20px rgba(0,0,0,.25);
+
+      --paper-light:#ffffff;
+      --ink-light:#0f172a;
+      --muted-light:#334155;
+      --rule-light:#e2e8f0;
+
+      --shadow:0 16px 40px rgba(0,0,0,.35);
       --radius:14px;
-      --focus:0 0 0 3px rgba(246,130,31,.35);
+      --maxw:920px;
+    }
+
+    /* Auto light mode if system prefers light */
+    @media (prefers-color-scheme: light){
+      :root{
+        --paper:var(--paper-light);
+        --ink:var(--ink-light);
+        --muted:var(--muted-light);
+        --rule:var(--rule-light);
+      }
+      body{ background:#f3f4f6; }
     }
 
     *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
     body{
-      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
       margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
       padding:20px;
+      line-height:1.45;
     }
 
-    .container{ max-width:920px; margin:0 auto; }
-
-    /* Top bar */
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:14px;
-    }
-
-    .lang-toggle{
-      background:transparent;
-      border:2px solid var(--accent);
-      color:var(--accent);
-      padding:6px 14px;
-      border-radius:999px;
-      font-weight:700;
-      cursor:pointer;
-      transition:transform .15s ease, background .2s ease, color .2s ease, opacity .2s ease;
-    }
-    .lang-toggle:hover{ background:var(--accent); color:var(--bg); transform:translateY(-1px); }
-    .lang-toggle:focus-visible{ outline:none; box-shadow:var(--focus); }
-
-    /* Language visibility rules */
+    /* Language handling */
     body:not(.lang-pt) .pt{ display:none; }
     body.lang-pt .en{ display:none; }
 
-    header{
-      text-align:center;
-      padding:28px 22px;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      background:linear-gradient(180deg, rgba(30,41,59,.92), rgba(30,41,59,.75));
-      box-shadow:var(--shadow);
-    }
+    .wrap{ max-width:var(--maxw); margin:0 auto; }
 
-    h1{
-      margin:0 0 6px 0;
-      color:var(--accent);
-      font-size:clamp(1.8rem, 3vw, 2.4rem);
-      letter-spacing:-.02em;
+    /* Top controls (not printed) */
+    .toolbar{
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      align-items:center;
+      margin:0 0 12px 0;
     }
-
-    .subtitle{
-      margin:0;
-      color:var(--muted);
-    }
-
-    .badges{ margin-top:10px; }
-    .badge{
-      background:rgba(246,130,31,.12);
-      border:1px solid rgba(246,130,31,.35);
-      color:var(--text);
-      padding:4px 10px;
+    .btn{
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.06);
+      color:var(--ink);
+      padding:8px 12px;
       border-radius:999px;
       font-weight:700;
-      font-size:.86rem;
-      margin:4px 6px;
-      display:inline-block;
+      cursor:pointer;
+      transition:transform .12s ease, opacity .2s ease;
     }
+    .btn:hover{ transform:translateY(-1px); opacity:.92; }
+    .btn:focus-visible{ outline:3px solid rgba(246,130,31,.35); outline-offset:2px; }
 
-    section{
-      margin:18px 0;
-      background:var(--card);
-      padding:20px;
+    .cv{
+      background:var(--paper);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
+      padding:28px;
       border:1px solid rgba(255,255,255,.06);
     }
 
-    h2{
-      margin:0 0 10px 0;
-      color:var(--accent);
-      font-size:1.15rem;
-      border-bottom:1px solid var(--border);
-      padding-bottom:8px;
-    }
-
-    .grid{
+    header{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns: 1fr auto;
       gap:16px;
+      align-items:start;
+      padding-bottom:16px;
+      border-bottom:1px solid var(--rule);
     }
 
-    ul{ padding-left:18px; margin:10px 0 0 0; }
-    li{ margin:6px 0; }
-
-    a{ color:inherit; }
-    .links{
-      margin-top:14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:center;
+    h1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:-.02em;
     }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:11px 16px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:800;
-      transition:transform .15s ease, opacity .2s ease;
-      border:1px solid transparent;
-      min-width:180px;
-    }
-    .btn:hover{ opacity:.92; transform:translateY(-1px); }
-    .btn:focus-visible{ outline:none; box-shadow:var(--focus); }
-
-    .contact-btn{ background:var(--accent); color:var(--bg); }
-    .download-btn{ background:var(--success); color:#fff; }
-
-    .contact-card{
-      text-align:center;
-    }
-    .meta{
-      margin-top:10px;
+    .headline{
+      margin:6px 0 0 0;
       color:var(--muted);
-      font-size:.95rem;
-    }
-    .meta a{ color:var(--muted); text-decoration:underline; text-underline-offset:3px; }
-
-    .sr-only{
-      position:absolute;
-      width:1px; height:1px;
-      padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0,0,0,0);
-      white-space:nowrap; border:0;
+      font-weight:600;
     }
 
-    @media (max-width:720px){
-      .grid{ grid-template-columns:1fr; }
-      .btn{ width:100%; min-width:unset; }
-      header{ text-align:left; }
-      .links{ justify-content:flex-start; }
+    .contact{
+      text-align:right;
+      font-size:14px;
+      color:var(--muted);
+      display:grid;
+      gap:4px;
+    }
+    .contact a{
+      color:inherit;
+      text-decoration:none;
+      border-bottom:1px dotted transparent;
+    }
+    .contact a:hover{ border-bottom-color:var(--muted); }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 2fr 1fr;
+      gap:22px;
+      margin-top:18px;
+    }
+
+    h2{
+      font-size:14px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin:18px 0 8px 0;
+      color:var(--accent);
+    }
+    .section{ padding-top:6px; }
+
+    .summary{
+      margin:0;
+      color:var(--ink);
+    }
+
+    .entry{ margin:10px 0 0 0; }
+    .entry .top{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      font-weight:700;
+    }
+    .entry .meta{
+      color:var(--muted);
+      font-weight:600;
+      margin-top:2px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      font-size:13px;
+    }
+
+    ul{
+      margin:8px 0 0 18px;
+      padding:0;
+    }
+    li{ margin:4px 0; }
+
+    .skills{
+      display:grid;
+      gap:10px;
+      font-size:14px;
+    }
+    .skill-block b{ display:block; margin-bottom:4px; }
+    .pillrow{ display:flex; flex-wrap:wrap; gap:6px; }
+    .pill{
+      border:1px solid rgba(255,255,255,.14);
+      padding:5px 10px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:12px;
+      color:var(--ink);
+      background:rgba(255,255,255,.04);
+    }
+
+    .note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:10px;
+    }
+
+    @media (max-width: 860px){
+      header{ grid-template-columns:1fr; }
+      .contact{ text-align:left; }
+      .two-col{ grid-template-columns:1fr; }
+    }
+
+    /* Print-friendly */
+    @media print{
+      body{ background:white; padding:0; }
+      .toolbar{ display:none; }
+      .cv{
+        box-shadow:none;
+        border:none;
+        border-radius:0;
+        padding:18mm;
+        color:#0f172a;
+        background:white;
+      }
+      h2{ color:#0f172a; }
+      .pill{ border-color:#cbd5e1; background:white; }
+      a{ color:inherit; text-decoration:none; }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-
-    <div class="topbar">
-      <div class="en" aria-hidden="true"></div>
-      <div class="pt" aria-hidden="true"></div>
-
-      <button class="lang-toggle" id="langBtn" type="button" aria-label="Toggle language">
-        PT
-      </button>
+  <div class="wrap">
+    <div class="toolbar">
+      <button class="btn" id="langBtn" type="button">PT</button>
+      <button class="btn" type="button" onclick="window.print()">Download PDF</button>
+      <!-- optional: link to your PDF CV file -->
+      <!-- <a class="btn" href="Tiago_Quintino_CV_ENG.pdf" download>CV (PDF file)</a> -->
     </div>
 
-    <header>
-      <h1>Tiago Miguel Nascimento Quintino</h1>
+    <main class="cv" role="document" aria-label="Curriculum Vitae">
+      <header>
+        <div>
+          <h1>Tiago Miguel Nascimento Quintino</h1>
 
-      <p class="subtitle en">Electrical &amp; Computer Engineering student @ <strong>IST</strong> (University of Lisbon)</p>
-      <p class="subtitle pt">Estudante de Eng. Eletrotécnica e de Computadores @ <strong>IST</strong> (Universidade de Lisboa)</p>
+          <p class="headline en">BSc Electrical &amp; Computer Engineering (IST) • Cybersecurity / Networks / Low-level Systems</p>
+          <p class="headline pt">Licenciatura em Eng. Eletrotécnica e de Computadores (IST) • Cibersegurança / Redes / Sistemas de baixo nível</p>
+        </div>
 
-      <div class="badges" aria-label="Highlights">
-        <span class="badge en">Working student</span>
-        <span class="badge pt">Trabalhador-estudante</span>
+        <div class="contact">
+          <div class="en">Pinhal Novo, Portugal</div>
+          <div class="pt">Pinhal Novo, Portugal</div>
 
-        <span class="badge en">Student representative</span>
-        <span class="badge pt">Representante estudantil</span>
+          <div><a href="mailto:tiago.quintino@tecnico.ulisboa.pt">tiago.quintino@tecnico.ulisboa.pt</a></div>
+          <div><a href="tel:+351928021720">+351 928 021 720</a></div>
 
-        <span class="badge en">Cybersecurity &amp; networks</span>
-        <span class="badge pt">Cibersegurança &amp; redes</span>
+          <div><a href="https://yellow-point2.github.io/tiago-quintino/" target="_blank" rel="noreferrer">Portfolio</a></div>
+          <div><a href="https://github.com/yellow-point2" target="_blank" rel="noreferrer">GitHub</a></div>
+          <!-- <div><a href="https://linkedin.com/in/..." target="_blank" rel="noreferrer">LinkedIn</a></div> -->
+        </div>
+      </header>
+
+      <div class="two-col">
+        <!-- LEFT COLUMN -->
+        <div>
+          <section class="section">
+            <h2 class="en">Profile</h2>
+            <h2 class="pt">Perfil</h2>
+
+            <p class="summary en">
+              2nd-year IST engineering student (working-student) focused on cybersecurity and networked systems.
+              Strong fundamentals in C (pointers, memory management) and Python for automation; coursework experience in ARM assembly.
+              Interested in memory safety, low-level debugging, and practical defensive engineering.
+            </p>
+
+            <p class="summary pt">
+              Estudante do 2.º ano no IST (trabalhador-estudante) com foco em cibersegurança e sistemas em rede.
+              Boas bases em C (ponteiros e gestão de memória) e Python para automação; experiência em Assembly ARM nas cadeiras do curso.
+              Interesse em segurança de memória, debug de baixo nível e engenharia defensiva.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2 class="en">Education</h2>
+            <h2 class="pt">Educação</h2>
+
+            <div class="entry">
+              <div class="top">
+                <div>BSc Electrical and Computer Engineering — Instituto Superior Técnico (University of Lisbon)</div>
+                <div class="en">2022–Present</div>
+                <div class="pt">2022–Presente</div>
+              </div>
+              <div class="meta">
+                <div class="en">Current status: 2nd year • Working-student</div>
+                <div class="pt">Estado: 2.º ano • Trabalhador-estudante</div>
+              </div>
+
+              <ul class="en">
+                <li>Relevant coursework: Computer Networks (in progress), Computer Architecture (ARM Assembly), Digital Electronics, Signals and Systems.</li>
+              </ul>
+              <ul class="pt">
+                <li>Cadeiras relevantes: Redes de Computadores (a decorrer), Arquitetura de Computadores (Assembly ARM), Eletrónica Digital, Sinais e Sistemas.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="en">Experience</h2>
+            <h2 class="pt">Experiência</h2>
+
+            <div class="entry">
+              <div class="top">
+                <div>Mathematics &amp; Physics Tutor — Atelier Estudo 4 U (Vila Serena)</div>
+                <div class="en">Sep 2024–Present</div>
+                <div class="pt">Set 2024–Presente</div>
+              </div>
+              <ul class="en">
+                <li>Explained complex topics clearly and structured problem-solving for students with different backgrounds.</li>
+                <li>Managed schedule autonomously while balancing a demanding academic workload.</li>
+              </ul>
+              <ul class="pt">
+                <li>Expliquei conteúdos complexos de forma clara e estruturei resolução de problemas para alunos com perfis diferentes.</li>
+                <li>Gestão autónoma de horários, conciliando trabalho com exigência académica.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="en">Leadership</h2>
+            <h2 class="pt">Liderança</h2>
+
+            <div class="entry">
+              <div class="top">
+                <div>Elected Student Representative — IST School Assembly (Assembly Board &amp; Standing Committee)</div>
+                <div class="en">Jan 2025–Present</div>
+                <div class="pt">Jan 2025–Presente</div>
+              </div>
+              <ul class="en">
+                <li>Participate in institutional governance and represent student interests in discussions and decisions.</li>
+                <li>Co-organised IST School Days (logistics and event execution).</li>
+              </ul>
+              <ul class="pt">
+                <li>Participação na governação institucional e representação dos estudantes em discussões e decisões.</li>
+                <li>Coorganização das IST School Days (logística e execução).</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <aside>
+          <section class="section">
+            <h2 class="en">Skills</h2>
+            <h2 class="pt">Competências</h2>
+
+            <div class="skills">
+              <div class="skill-block en">
+                <b>Languages</b>
+                <div class="pillrow">
+                  <span class="pill">C</span>
+                  <span class="pill">Python</span>
+                  <span class="pill">ARM Assembly (coursework)</span>
+                  <span class="pill">MATLAB</span>
+                </div>
+              </div>
+
+              <div class="skill-block pt">
+                <b>Linguagens</b>
+                <div class="pillrow">
+                  <span class="pill">C</span>
+                  <span class="pill">Python</span>
+                  <span class="pill">Assembly ARM (cadeiras)</span>
+                  <span class="pill">MATLAB</span>
+                </div>
+              </div>
+
+              <div class="skill-block en">
+                <b>Systems</b>
+                <div class="pillrow">
+                  <span class="pill">Linux</span>
+                  <span class="pill">OS concepts</span>
+                </div>
+              </div>
+
+              <div class="skill-block pt">
+                <b>Sistemas</b>
+                <div class="pillrow">
+                  <span class="pill">Linux</span>
+                  <span class="pill">Conceitos de SO</span>
+                </div>
+              </div>
+
+              <div class="skill-block en">
+                <b>Networking</b>
+                <div class="pillrow">
+                  <span class="pill">TCP/IP</span>
+                  <span class="pill">DNS</span>
+                  <span class="pill">HTTP/HTTPS</span>
+                </div>
+              </div>
+
+              <div class="skill-block pt">
+                <b>Redes</b>
+                <div class="pillrow">
+                  <span class="pill">TCP/IP</span>
+                  <span class="pill">DNS</span>
+                  <span class="pill">HTTP/HTTPS</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="note en">
+              Tip: publish 1–2 small projects (even simple ones) and link them here.
+            </p>
+            <p class="note pt">
+              Dica: publicar 1–2 projetos pequenos (mesmo simples) e colocar links aqui melhora muito o impacto.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2 class="en">Projects</h2>
+            <h2 class="pt">Projetos</h2>
+
+            <div class="entry">
+              <div class="top">
+                <div class="en">Independent security study</div>
+                <div class="pt">Estudo independente de segurança</div>
+              </div>
+              <ul class="en">
+                <li>Memory-safety concepts and common vulnerability classes (educational, controlled environments).</li>
+              </ul>
+              <ul class="pt">
+                <li>Conceitos de segurança de memória e classes comuns de vulnerabilidades (ambientes educativos e controlados).</li>
+              </ul>
+            </div>
+
+            <div class="entry">
+              <div class="top">
+                <div class="en">ARM assembly coursework</div>
+                <div class="pt">Trabalho/cadeiras em Assembly ARM</div>
+              </div>
+              <ul class="en">
+                <li>Low-level routines and analysis of execution flow and correctness.</li>
+              </ul>
+              <ul class="pt">
+                <li>Rotinas de baixo nível e análise de fluxo de execução e correção.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="en">Availability</h2>
+            <h2 class="pt">Disponibilidade</h2>
+
+            <ul class="en">
+              <li>Summer 2026 (flexible dates)</li>
+              <li>Open to relocation (UK/EU)</li>
+            </ul>
+            <ul class="pt">
+              <li>Verão 2026 (datas flexíveis)</li>
+              <li>Disponível para relocação (UK/UE)</li>
+            </ul>
+          </section>
+        </aside>
       </div>
-
-      <div class="links" aria-label="Primary actions">
-        <a class="btn download-btn en" href="Tiago_Quintino_CV_ENG.pdf" download>Download CV (PDF)</a>
-        <a class="btn download-btn pt" href="Tiago_Quintino_CV.pdf" download>Descarregar CV (PDF)</a>
-
-        <a class="btn contact-btn en" href="mailto:tiago.quintino@tecnico.ulisboa.pt">Email</a>
-        <a class="btn contact-btn pt" href="mailto:tiago.quintino@tecnico.ulisboa.pt">Email</a>
-      </div>
-    </header>
-
-    <section>
-      <h2 class="en">About</h2>
-      <h2 class="pt">Sobre</h2>
-
-      <p class="en">
-        2nd-year engineering student focused on low-level systems and security.
-        Strong fundamentals in <strong>C</strong>, coursework in <strong>ARM assembly</strong>, and hands-on learning with <strong>Linux</strong>.
-        Interested in cybersecurity and networked systems, especially memory safety and practical defensive engineering.
-      </p>
-
-      <p class="pt">
-        Estudante do 2.º ano focado em sistemas de baixo nível e segurança.
-        Boas bases em <strong>C</strong>, experiência em <strong>Assembly ARM</strong> (cadeiras do curso) e aprendizagem prática com <strong>Linux</strong>.
-        Interesse em cibersegurança e sistemas em rede, com foco em memória/segurança e engenharia defensiva.
-      </p>
-    </section>
-
-    <div class="grid">
-      <section>
-        <h2 class="en">Skills</h2>
-        <h2 class="pt">Competências</h2>
-
-        <ul class="en">
-          <li><strong>Languages:</strong> C, Python, ARM Assembly (coursework), MATLAB</li>
-          <li><strong>Systems:</strong> Linux (user-space), OS concepts</li>
-          <li><strong>Networking:</strong> TCP/IP, DNS, HTTP/HTTPS</li>
-          <li><strong>Interests:</strong> memory safety, low-level debugging, network protection</li>
-        </ul>
-
-        <ul class="pt">
-          <li><strong>Linguagens:</strong> C, Python, Assembly ARM (cadeiras), MATLAB</li>
-          <li><strong>Sistemas:</strong> Linux (user-space), conceitos de SO</li>
-          <li><strong>Redes:</strong> TCP/IP, DNS, HTTP/HTTPS</li>
-          <li><strong>Interesses:</strong> segurança de memória, debug de baixo nível, proteção de redes</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="en">Experience &amp; leadership</h2>
-        <h2 class="pt">Experiência &amp; liderança</h2>
-
-        <ul class="en">
-          <li><strong>IST School Assembly:</strong> elected student representative (since Jan 2025)</li>
-          <li><strong>STEM tutoring:</strong> mathematics and physics (since Sep 2024)</li>
-          <li><strong>Events:</strong> co-organised IST School Days (logistics and execution)</li>
-        </ul>
-
-        <ul class="pt">
-          <li><strong>Assembleia de Escola do IST:</strong> representante eleito (desde Jan 2025)</li>
-          <li><strong>Explicações STEM:</strong> matemática e física (desde Set 2024)</li>
-          <li><strong>Eventos:</strong> coorganização das Jornadas/School Days (logística e execução)</li>
-        </ul>
-      </section>
-    </div>
-
-    <section class="contact-card">
-      <h2 class="en">Contact</h2>
-      <h2 class="pt">Contacto</h2>
-
-      <p class="en">Open to summer placements in cybersecurity, networks, and low-level systems.</p>
-      <p class="pt">Disponível para estágios de verão em cibersegurança, redes e sistemas de baixo nível.</p>
-
-      <div class="links" aria-label="Contact links">
-        <a class="btn contact-btn" href="mailto:tiago.quintino@tecnico.ulisboa.pt">tiago.quintino@tecnico.ulisboa.pt</a>
-        <a class="btn download-btn en" href="Tiago_Quintino_CV_ENG.pdf" download>Download CV (PDF)</a>
-        <a class="btn download-btn pt" href="Tiago_Quintino_CV.pdf" download>Descarregar CV (PDF)</a>
-      </div>
-
-      <div class="meta">
-        <span class="en">Pinhal Novo, Portugal • </span><span class="pt">Pinhal Novo, Portugal • </span>
-        <a href="tel:+351928021720">+351 928 021 720</a>
-      </div>
-    </section>
-
+    </main>
   </div>
 
   <script>
@@ -301,24 +457,20 @@
       const btn = document.getElementById("langBtn");
 
       function applyLang(lang) {
-        const isPT = (lang === "pt");
+        const isPT = lang === "pt";
         body.classList.toggle("lang-pt", isPT);
         document.documentElement.lang = isPT ? "pt" : "en";
         btn.textContent = isPT ? "EN" : "PT";
-        btn.setAttribute("aria-label", isPT ? "Switch to English" : "Mudar para Português");
       }
 
-      function toggleLanguage() {
-        const next = body.classList.contains("lang-pt") ? "en" : "pt";
-        localStorage.setItem("site_lang", next);
-        applyLang(next);
-      }
-
-      // Default language: English; if user previously chose, persist it.
       const saved = localStorage.getItem("site_lang");
       applyLang(saved === "pt" ? "pt" : "en");
 
-      btn.addEventListener("click", toggleLanguage);
+      btn.addEventListener("click", () => {
+        const next = body.classList.contains("lang-pt") ? "en" : "pt";
+        localStorage.setItem("site_lang", next);
+        applyLang(next);
+      });
     })();
   </script>
 </body>
